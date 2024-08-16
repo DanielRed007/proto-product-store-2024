@@ -3,7 +3,7 @@ import ThemeSwitcher from "./components/ThemeSwitcher";
 
 const categories = [
   {
-    name: "Recent",
+    name: "Alerts",
     posts: [
       {
         id: 1,
@@ -22,7 +22,7 @@ const categories = [
     ],
   },
   {
-    name: "Popular",
+    name: "Dialogs",
     posts: [
       {
         id: 1,
@@ -41,7 +41,7 @@ const categories = [
     ],
   },
   {
-    name: "Trending",
+    name: "Modals",
     posts: [
       {
         id: 1,
@@ -66,21 +66,21 @@ export default function Home() {
     <main className='flex min-h-screen flex-col items-center justify-between p-24'>
       <h1>Modal Widget Catalog</h1>
       <ThemeSwitcher />
-      <div className='flex h-screen w-full justify-center pt-24 px-4'>
-        <div className='w-full max-w-md'>
-          <TabGroup>
+      <div className='flex h-screen w-5/6 bg-blue-500 justify-center pt-24 px-4 rounded-md'>
+        <div className='w-5/6'>
+          <TabGroup className='w-full'>
             <TabList className='flex gap-4'>
               {categories.map(({ name }) => (
                 <Tab
                   key={name}
-                  className='rounded-full py-1 px-3 text-sm/6 font-semibold text-white focus:outline-none data-[selected]:bg-white/10 data-[hover]:bg-white/5 data-[selected]:data-[hover]:bg-white/10 data-[focus]:outline-1 data-[focus]:outline-white'
+                  className='rounded-full py-1 px-3 text-sm/6 font-semibold text-white focus:outline-none data-[selected]:bg-white/40 data-[hover]:bg-white/20 data-[selected]:data-[hover]:bg-white/10 data-[focus]:outline-1 data-[focus]:outline-white'
                 >
                   {name}
                 </Tab>
               ))}
             </TabList>
-            <TabPanels className='mt-3'>
-              {categories.map(({ name, posts }) => (
+            <TabPanels className='mt-3 w-full h-full bg-red-700'>
+              {/* {categories.map(({ name, posts }) => (
                 <TabPanel key={name} className='rounded-xl bg-white/5 p-3'>
                   <ul>
                     {posts.map((post) => (
@@ -106,7 +106,9 @@ export default function Home() {
                     ))}
                   </ul>
                 </TabPanel>
-              ))}
+              ))} */}
+              Tabs
+              <div></div>
             </TabPanels>
           </TabGroup>
         </div>
