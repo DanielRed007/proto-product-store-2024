@@ -1,17 +1,15 @@
 "use client";
 
+import { SunIcon, MoonIcon } from "@heroicons/react/24/solid";
 import { useTheme } from "../context/ThemeContext";
 
 const ThemeSwitcher = () => {
   const { theme, toggleTheme } = useTheme();
 
-  return (
-    <button
-      onClick={toggleTheme}
-      className='p-2 mt-4 mb-4 text-sm font-medium text-white bg-blue-500 rounded hover:bg-blue-700'
-    >
-      Switch to {theme === "light" ? "Dark" : "Light"} Mode
-    </button>
+  return theme === "light" ? (
+    <MoonIcon className='w-12 h-12 m-5 text-gray-200' onClick={toggleTheme} />
+  ) : (
+    <SunIcon className='w-12 h-12 m-5 text-gray-200' onClick={toggleTheme} />
   );
 };
 
