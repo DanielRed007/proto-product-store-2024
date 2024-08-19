@@ -10,22 +10,26 @@ const widgetData = [
       {
         widget: "alert",
         type: AlertType.Info,
-        message: "This is a fisrt alert",
+        message:
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
       },
       {
         widget: "alert",
         type: AlertType.Success,
-        message: "This is a fisrt alert",
+        message:
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
       },
       {
         widget: "alert",
         type: AlertType.Error,
-        message: "This is a fisrt alert",
+        message:
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
       },
       {
         widget: "alert",
         type: AlertType.Warning,
-        message: "This is a fisrt alert",
+        message:
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
       },
     ],
   },
@@ -35,7 +39,8 @@ const widgetData = [
       {
         widget: "alert",
         type: AlertType.Info,
-        message: "This is a another alert",
+        message:
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
       },
       {
         widget: "alert",
