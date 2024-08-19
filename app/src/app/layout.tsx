@@ -1,7 +1,7 @@
 import { ReactNode } from "react";
 import type { Metadata } from "next";
 import "./globals.css";
-import { Comfortaa } from "@next/font/google";
+import { Comfortaa } from "next/font/google";
 import { ThemeProvider } from "./context/ThemeContext";
 
 export const metadata: Metadata = {
