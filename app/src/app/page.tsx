@@ -2,6 +2,7 @@ import { Tab, TabGroup, TabList, TabPanel, TabPanels } from "@headlessui/react";
 import ThemeSwitcher from "./components/ThemeSwitcher";
 import { CustomAlert } from "./components/CustomAlert";
 import { AlertType } from "./enums/AlertType";
+import { CustomModal } from "./components/CustomModal";
 
 const widgetData = [
   {
@@ -34,53 +35,19 @@ const widgetData = [
     ],
   },
   {
-    name: "Dialogs",
+    name: "Modals",
     widget: [
       {
-        widget: "alert",
+        widget: "modal",
         type: AlertType.Info,
         message:
           "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
       },
       {
-        widget: "alert",
+        widget: "modal",
         type: AlertType.Success,
-        message: "This is a another alert",
-      },
-      {
-        widget: "alert",
-        type: AlertType.Error,
-        message: "This is a another alert",
-      },
-      {
-        widget: "alert",
-        type: AlertType.Warning,
-        message: "This is a another alert",
-      },
-    ],
-  },
-  {
-    name: "Modals",
-    widget: [
-      {
-        widget: "alert",
-        type: AlertType.Info,
-        message: "This is a second alert",
-      },
-      {
-        widget: "alert",
-        type: AlertType.Success,
-        message: "This is a second alert",
-      },
-      {
-        widget: "alert",
-        type: AlertType.Error,
-        message: "This is a second alert",
-      },
-      {
-        widget: "alert",
-        type: AlertType.Warning,
-        message: "This is a second alert",
+        message:
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
       },
     ],
   },
@@ -105,13 +72,21 @@ export default function Home() {
               ))}
             </TabList>
             <TabPanels className='mt-3 w-full h-full bg-gray-700 rounded-md'>
-              {widgetData.map(({ name, widget }) => (
-                <TabPanel key={name} className='rounded-md bg-white/5 p-3'>
-                  {widget.map((w, i) => (
-                    <CustomAlert key={i} type={w.type} message={w.message} />
-                  ))}
-                </TabPanel>
-              ))}
+              {widgetData.map(({ name, widget }) =>
+                widget[0].widget === "alert" ? (
+                  <TabPanel key={name} className='rounded-md bg-white/5 p-3'>
+                    {widget.map((w, i) => (
+                      <CustomAlert key={i} type={w.type} message={w.message} />
+                    ))}
+                  </TabPanel>
+                ) : widget[0].widget === "modal" ? (
+                  <TabPanel key={name} className='rounded-md bg-white/5 p-3'>
+                    {widget.map((w, i) => (
+                      <CustomModal key={i} type={w.type} message={w.message} />
+                    ))}
+                  </TabPanel>
+                ) : null
+              )}
               {/* Tabs */}
               <div></div>
             </TabPanels>

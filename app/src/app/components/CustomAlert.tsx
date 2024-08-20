@@ -20,44 +20,40 @@ export const CustomAlert: React.FC<AlertProps> = ({ type, message }) => {
 
   switch (type) {
     case "success":
-      typeStyle = "green";
+      typeStyle = "text-green-500 dark:text-green-700";
       break;
     case "error":
-      typeStyle = "red";
+      typeStyle = "text-red-500 dark:text-red-700";
       break;
     case "warning":
-      typeStyle = "yellow";
+      typeStyle = "text-yellow-500 dark:text-yellow-700";
       break;
     case "info":
-      typeStyle = "blue";
+      typeStyle = "text-blue-500 dark:text-blue-700";
       break;
   }
 
   return (
     <div
-      className={`${baseStyle} bg-gray-800 flex items-center justify-center`}
+      className={`${baseStyle} bg-gray-500 dark:bg-gray-800 flex items-center justify-center`}
     >
       {type === "success" ? (
-        <CheckCircleIcon className={`h-10 w-10 text-${typeStyle}-500`} />
+        <CheckCircleIcon className={`h-10 w-10 ${typeStyle}`} />
       ) : type === "error" ? (
-        <XCircleIcon className={`h-10 w-10 text-${typeStyle}-500`} />
+        <XCircleIcon className={`h-10 w-10 ${typeStyle}`} />
       ) : type === "warning" ? (
-        <ExclamationTriangleIcon
-          className={`h-10 w-10 text-${typeStyle}-500`}
-        />
+        <ExclamationTriangleIcon className={`h-10 w-10 ${typeStyle}`} />
       ) : (
         type === "info" && (
-          <ShieldExclamationIcon
-            className={`h-10 w-10 text-${typeStyle}-500`}
-          />
+          <ShieldExclamationIcon className={`h-10 w-10 ${typeStyle}`} />
         )
       )}
 
-      <div className={`h-20 w-px bg-gray-500 ml-5 mr-2`}></div>
+      <div className={`h-20 w-px bg-gray-400 ml-5 mr-2`}></div>
 
       <div className='p-3 mx-2'>{message}</div>
 
-      <XMarkIcon className='h-10 w-10 text-gray-500' />
+      <XMarkIcon className='h-10 w-10 text-gray-300 dark:bg-gray-800' />
     </div>
   );
 };
