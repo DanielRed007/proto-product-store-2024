@@ -2,6 +2,8 @@ import { Tab, TabGroup, TabList, TabPanel, TabPanels } from "@headlessui/react";
 import ThemeSwitcher from "./components/ThemeSwitcher";
 import { CustomAlert } from "./components/CustomAlert";
 import { AlertType } from "./enums/AlertType";
+import { CustomModal } from "./components/CustomModal";
+import { CustomCard } from "./components/CustomCard";
 
 const widgetData = [
   {
@@ -37,54 +39,64 @@ const widgetData = [
     name: "Dialogs",
     widget: [
       {
-        widget: "alert",
+        widget: "modal",
         type: AlertType.Info,
         message:
           "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
       },
       {
-        widget: "alert",
+        widget: "modal",
         type: AlertType.Success,
         message: "This is a another alert",
       },
       {
-        widget: "alert",
+        widget: "modal",
         type: AlertType.Error,
         message: "This is a another alert",
       },
       {
-        widget: "alert",
+        widget: "modal",
         type: AlertType.Warning,
         message: "This is a another alert",
       },
     ],
   },
   {
-    name: "Modals",
+    name: "Cards",
     widget: [
       {
-        widget: "alert",
+        widget: "card",
         type: AlertType.Info,
         message: "This is a second alert",
+        imageUrl: "https://via.placeholder.com/600x400",
       },
       {
-        widget: "alert",
+        widget: "card",
         type: AlertType.Success,
         message: "This is a second alert",
+        imageUrl: "https://via.placeholder.com/600x400",
       },
       {
-        widget: "alert",
+        widget: "card",
         type: AlertType.Error,
         message: "This is a second alert",
+        imageUrl: "https://via.placeholder.com/600x400",
       },
       {
-        widget: "alert",
+        widget: "card",
         type: AlertType.Warning,
         message: "This is a second alert",
+        imageUrl: "https://via.placeholder.com/600x400",
       },
     ],
   },
 ];
+
+const widgetComponents: Record<string, React.FC<any>> = {
+  alert: CustomAlert,
+  modal: CustomModal,
+  card: CustomCard,
+};
 
 export default function Home() {
   return (
@@ -105,14 +117,28 @@ export default function Home() {
               ))}
             </TabList>
             <TabPanels className='mt-3 w-full h-full bg-gray-700 rounded-md'>
-              {widgetData.map(({ name, widget }) => (
+              {/* {widgetData.map(({ name, widget }) => (
                 <TabPanel key={name} className='rounded-md bg-white/5 p-3'>
                   {widget.map((w, i) => (
                     <CustomAlert key={i} type={w.type} message={w.message} />
                   ))}
                 </TabPanel>
-              ))}
+              ))} */}
               {/* Tabs */}
+              {widgetData.map(({ name, widget }) => (
+                <TabPanel key={name} className='rounded-md bg-white/5 p-3'>
+                  {widget.map((w, i) => {
+                    const Component =
+                      widgetComponents[
+                        w.widget as keyof typeof widgetComponents
+                      ];
+                    if (Component) {
+                      return <Component key={i} {...w} />;
+                    }
+                    return null; // Fallback for unknown widget types
+                  })}
+                </TabPanel>
+              ))}
               <div></div>
             </TabPanels>
           </TabGroup>
