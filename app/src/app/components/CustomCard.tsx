@@ -46,18 +46,21 @@ export const CustomCard: React.FC<DialogProps> = ({
   }
 
   return (
-    <div className={`${baseStyle} max-w-lg w-full`}>
+    <div
+      data-testid='cards-container'
+      className={`${baseStyle} max-w-lg w-full`}
+    >
       {imageUrl && (
         <img
           src={imageUrl}
           alt='Card image'
-          className='rounded-t-lg w-full h-48 object-cover'
+          className='rounded-lg w-full h-auto object-cover'
         />
       )}
       <div className='flex items-center justify-between mt-4'>
         <div className='flex items-center'>
           <div className={`mr-4 ${typeStyle}`}>{icon}</div>
-          <h3 className='text-lg font-medium'>Modal</h3>
+          <h3 className='text-lg font-medium'>Card</h3>
         </div>
         <XMarkIcon className='h-6 w-6 cursor-pointer text-gray-500' />
       </div>
