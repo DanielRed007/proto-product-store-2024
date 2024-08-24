@@ -35,7 +35,8 @@ export const CustomAlert: React.FC<AlertProps> = ({ type, message }) => {
 
   return (
     <div
-      className={`${baseStyle} bg-gray-800 flex items-center justify-center`}
+      data-testid='alerts-container'
+      className={`shrink ${baseStyle} bg-gray-800 flex items-center justify-center`}
     >
       {type === "success" ? (
         <CheckCircleIcon className={`h-10 w-10 text-${typeStyle}-500`} />

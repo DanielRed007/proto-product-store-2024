@@ -41,7 +41,7 @@ export const CustomModal: React.FC<DialogProps> = ({ type, message }) => {
   }
 
   return (
-    <div className={`${baseStyle} max-w-lg w-full`}>
+    <div data-testid='dialogs-container' className={`${baseStyle} max-w-lg`}>
       <div className='flex items-center justify-between'>
         <div className='flex items-center'>
           <div className={`mr-4 ${typeStyle}`}>{icon}</div>
